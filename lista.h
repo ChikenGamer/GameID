@@ -40,7 +40,7 @@ public:
 
     T &operator [](int pos);
 
-    string toString();
+    //string toString();
 };
 
 template <class T>
@@ -178,19 +178,19 @@ T &Lista<T>::operator [](int pos)
     }
 }
 
-template<class T>
-string Lista<T>::toString()
-{
-    Nodo<T> *temp = raiz;//Direccion temporal
-    string lista = "[ ";//Inicia string lista
+//template<class T>
+//string Lista<T>::toString()
+//{
+//    Nodo<T> *temp = raiz;//Direccion temporal
+//    string lista = "[ ";//Inicia string lista
 
-    while (temp != nullptr) {//Hasta que temp apunte a nullo
-        lista += temp->dato;//Se le añade lo que hay en dato
-        lista += " ";
-        temp = temp->sig; //Temp pasa a la direccion siguiente
-    }
-    lista += "]"; //Se cierra la lista
-    return lista;
-}
+//    while (temp != nullptr) {//Hasta que temp apunte a nullo
+//        lista += temp->dato;//Se le añade lo que hay en dato
+//        lista += " ";
+//        temp = temp->sig; //Temp pasa a la direccion siguiente
+//    }
+//    lista += "]"; //Se cierra la lista
+//    return lista;
+//}
 
 #endif // LISTA_H

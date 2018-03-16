@@ -10,27 +10,19 @@ Menu::Menu()
 
     while (true) {
         ///Si se ingresa algo diferente de 1 o 4 se imprime la linea
-        if (op != "1" and op != "4") {
-            cout << "-Nombre de la civilizacion: " << arr.getNombreC() << endl;
-        }
+//        if (op != "1" and op != "4") {
+//            cout << "-Nombre de la civilizacion: " << arr.getNombreC() << endl;
+//        }
         ///Opciones del menu
-        cout << endl << "1) Agregar nombre a la civilizacion" << endl;
-        cout << "2) Agregar aldeano" << endl;
-        cout << "3) Eliminar aldeano " << endl;
-        cout << "4) Resumen" << endl;
+        //cout << endl << "1) Agregar nombre a la civilizacion" << endl;
+        cout << "1) Agregar aldeano" << endl;
+        cout << "2) Eliminar aldeano " << endl;
+        cout << "3) Resumen" << endl;
         cout << "0) Salir" << endl;
         cout << "Opcion: "; getline(cin, op);
         system("cls");
 
         if (op == "1") {
-            ///Se pide el nombre y se actualiza la string por defecto de la civ.
-            string myStr;
-            cout << "Ingresa el nombre: ";
-            getline(cin, myStr);
-            arr.setNombreC(myStr);
-            cout << endl << "-=CAMBIO EXITOSO=-" << endl << endl;
-
-        }else if (op == "2") {
             ///Se piden los datos para el aldeano
             int myInt;
             string myStr;
@@ -61,7 +53,7 @@ Menu::Menu()
             ///Se agrega el aldeano al arreglo
             arr.agregarA(a);
 
-        }else if (op == "3") {
+        }else if (op == "2") {
 
             string myStr;
             int pos;
@@ -98,7 +90,7 @@ Menu::Menu()
             }
 
 
-        }else if (op == "4") {
+        }else if (op == "3") {
             ///Se imprime el nombre de la civ. e igualmente los aldeanos
             cout << "\t-=RESUMEN=- \n";
             cout << "-Nombre civilizacion: " << arr.getNombreC() << endl;
