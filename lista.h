@@ -33,8 +33,14 @@ public:
     void insertarFi(const T &d);
     void insertarPo(const T &d, int pos);
 
+    T findData(const string &s);
+    //T retrieveData(Nodo<T>*);
+
     void eliminarI();
     void eliminarF();
+    void eliminarCiv(const string &s);
+
+    bool posValida(const string &s);
 
     int tamano();
 
@@ -117,10 +123,25 @@ void Lista<T>::insertarPo(const T &d, int pos)
 }
 
 template<class T>
+T Lista<T>::findData(const string &s)
+{
+    Nodo<T> *temp = raiz;
+    if (posValida(s)) {
+        while (temp != nullptr){
+            if(temp->dato->nombreC == s) {
+                return temp->dato;
+            }
+            temp = temp->sig;
+        }
+    }
+    return 0;
+}
+
+template<class T>
 void Lista<T>::eliminarI()
 {
     if (raiz==nullptr) {
-        throw out_of_range ("Lista vacia");
+        cout << "Lista vacia";
     }else{
         Nodo<T> *temp = raiz;
         raiz = raiz->sig;
@@ -145,6 +166,48 @@ void Lista<T>::eliminarF()
         delete temp->sig;
         temp->sig = nullptr;
     }
+}
+
+template<class T>
+void Lista<T>::eliminarCiv(const string &s)
+{
+    Nodo<T>* temp = raiz;
+    Nodo<T>* temp2 = raiz;
+    if (posValida(s)) {
+        if(raiz->dato->nombreC == s){
+            raiz = raiz->sig;
+            delete temp;
+        }else{
+            int count = 0;
+            while(temp->dato->nombreC != s){
+                temp = temp->sig;
+                count++;
+            }
+
+            temp = raiz;
+            for (int i(1); i < count; ++i) {
+                temp=temp->sig;
+                temp2=temp2->sig;
+            }
+            temp2=temp2->sig->sig;
+            delete temp->sig;
+            temp->sig = temp2;
+            //cout << "T " << temp << endl;
+        }
+    }
+}
+
+template<class T>
+bool Lista<T>::posValida(const string &s)
+{
+    Nodo<T>* temp = raiz;
+    while (temp != nullptr) {
+        if(temp->dato->nombreC == s ){
+            return true;
+        }
+        temp = temp->sig;
+    }
+    return false;
 }
 
 template<class T>

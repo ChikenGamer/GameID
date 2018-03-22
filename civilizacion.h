@@ -14,8 +14,8 @@ private:
     int tam;
     const static int MAX = 5;
     ///Nombre por defecto de la civ.
-    string nombreC = "SIN NOMBRE";
 public:
+    string nombreC = "SIN NOMBRE";
     Civilizacion();
     ~Civilizacion();
     string getNombreC();

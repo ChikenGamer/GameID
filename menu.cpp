@@ -59,7 +59,7 @@ Menu::Menu()
             int pos;
             if(arr.isEmpty()){
                 ///Si el arreglo esta vacío no es posible eliminar aldeanos, se sigue con el menu
-                cout << "-=NO HAY ALDEANOS PARA ELIMINAR=-" << endl << endl;
+                cout << "-=ERROR: NO HAY ALDEANOS PARA ELIMINAR=-" << endl << endl;
                 continue;
             }
             ///Si no esta vacío se pide el nombre del aldeano y se hace la busqueda
@@ -103,6 +103,6 @@ Menu::Menu()
         }else if (op == "0") {
             ///Se cierra el programa
             break;
-        }
+        }else if(op == "5"){}
     }
 }
