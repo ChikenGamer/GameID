@@ -10,24 +10,30 @@ class Civilizacion
 {
 private:
     T *arreglo;
-    int indice;
     int tam;
+    int indice;
     const static int MAX = 5;
     ///Nombre por defecto de la civ.
 public:
     string nombreC = "SIN NOMBRE";
+
     Civilizacion();
     ~Civilizacion();
     string getNombreC();
+
     void setNombreC(string s);
     void agregarA(const T &dato);
-    int linearFindData(const T &name);
     void eliminarA(int pos);
+
+    int linearFindData(const T &name);
     int poblacionT();
     int tamanio();
+
     bool isEmpty();
 
     T &operator[](int posicion);
+
+    void toString();
 
 };
 
@@ -128,6 +134,17 @@ bool Civilizacion<T>::isEmpty()
 }
 
 template<class T>
+void Civilizacion<T>::toString()
+{
+    cout << endl << "-Nombre civilizacion: " << nombreC<< endl;
+    cout << "-Poblacion total: " << poblacionT() << endl;
+    cout << "-Aldeanos: " << endl;
+    for (int i = 0; i < poblacionT(); ++i) {
+        cout << arreglo[i] << endl;
+    }
+}
+
+template<class T>
 T &Civilizacion<T>::operator[](int posicion)
 {
     ///Operador sobrecargado para poder imprimir el arreglo tipo T
@@ -136,5 +153,6 @@ T &Civilizacion<T>::operator[](int posicion)
     }
     return arreglo[posicion];
 }
+
 
 #endif // CIVILIZACION_H

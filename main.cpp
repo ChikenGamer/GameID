@@ -7,7 +7,6 @@ using namespace std;
 int main()
 {
 
-    //MenuCivilizacion c;
-    Menu m;
+    MenuCivilizacion c;
     return 0;
 }

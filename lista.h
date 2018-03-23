@@ -34,19 +34,19 @@ public:
     void insertarPo(const T &d, int pos);
 
     T findData(const string &s);
-    //T retrieveData(Nodo<T>*);
 
     void eliminarI();
     void eliminarF();
     void eliminarCiv(const string &s);
 
     bool posValida(const string &s);
+    bool listaVacia();
 
     int tamano();
 
     T &operator [](int pos);
 
-    //string toString();
+    string toString();
 };
 
 template <class T>
@@ -211,6 +211,15 @@ bool Lista<T>::posValida(const string &s)
 }
 
 template<class T>
+bool Lista<T>::listaVacia()
+{
+    if (raiz == nullptr) {
+        return true;
+    }
+    return false;
+}
+
+template<class T>
 int Lista<T>::tamano()
 {
     Nodo<T> *temp = raiz;
@@ -226,7 +235,7 @@ template<class T>
 T &Lista<T>::operator [](int pos)
 {
     if (pos < 0 || pos >= tamano()) {
-        throw out_of_range("Posicion invalida");
+        throw out_of_range("Posicion invalida, operador [], lista");//Nunca sera invalida
     } else {
         Nodo<T> *temp = raiz;
         int cont = 0;
@@ -241,19 +250,18 @@ T &Lista<T>::operator [](int pos)
     }
 }
 
-//template<class T>
-//string Lista<T>::toString()
-//{
-//    Nodo<T> *temp = raiz;//Direccion temporal
-//    string lista = "[ ";//Inicia string lista
+template<class T>
+string Lista<T>::toString()
+{
+    Nodo<T> *temp = raiz;//Direccion temporal
+    string lista;//Inicia string lista
 
-//    while (temp != nullptr) {//Hasta que temp apunte a nullo
-//        lista += temp->dato;//Se le añade lo que hay en dato
-//        lista += " ";
-//        temp = temp->sig; //Temp pasa a la direccion siguiente
-//    }
-//    lista += "]"; //Se cierra la lista
-//    return lista;
-//}
+    while (temp != nullptr) {//Hasta que temp apunte a nullo
+        //lista *= cout << temp->dato->getNombreC;
+        lista += temp->dato;//Se le añade lo que hay
+        temp = temp->sig; //Temp pasa a la direccion siguiente
+    }
+    return lista;
+}
 
 #endif // LISTA_H

@@ -2,23 +2,19 @@
 #include "civilizacion.h"
 #include "aldeano.h"
 
-Menu::Menu()
+Menu::Menu(Civilizacion<Aldeano> *arr)
 {
     string op;
     Aldeano a;///Para el aldeano
-    Civilizacion<Aldeano> arr;///Para el arreglo
+    ///Para el arreglo
 
     while (true) {
-        ///Si se ingresa algo diferente de 1 o 4 se imprime la linea
-//        if (op != "1" and op != "4") {
-//            cout << "-Nombre de la civilizacion: " << arr.getNombreC() << endl;
-//        }
+        ///nombre de la civ actual
+            cout << endl << "-Nombre de la civilizacion: " << arr->getNombreC() << endl<< endl;
         ///Opciones del menu
-        //cout << endl << "1) Agregar nombre a la civilizacion" << endl;
         cout << "1) Agregar aldeano" << endl;
         cout << "2) Eliminar aldeano " << endl;
-        cout << "3) Resumen" << endl;
-        cout << "0) Salir" << endl;
+        cout << "0) Regresar" << endl;
         cout << "Opcion: "; getline(cin, op);
         system("cls");
 
@@ -51,13 +47,13 @@ Menu::Menu()
             a.setSaludA(myInt);
             cin.ignore();
             ///Se agrega el aldeano al arreglo
-            arr.agregarA(a);
+            arr->agregarA(a);
 
         }else if (op == "2") {
 
             string myStr;
             int pos;
-            if(arr.isEmpty()){
+            if(arr->isEmpty()){
                 ///Si el arreglo esta vacío no es posible eliminar aldeanos, se sigue con el menu
                 cout << "-=ERROR: NO HAY ALDEANOS PARA ELIMINAR=-" << endl << endl;
                 continue;
@@ -66,10 +62,11 @@ Menu::Menu()
             cout << "Ingresa el nombre del aldeano a eliminar: ";
             getline(cin, myStr);
             a.setNombreA(myStr);
-            pos = arr.linearFindData(a);
+            pos = arr->linearFindData(a);
             if(pos == -1){
                 ///Si la busqueda regresa -1 el adeano no existe
                 cout << endl << "-=ERROR: EL ALDEANO NO EXISTE-=" << endl << endl;
+                continue;
             }else{
                 ///El aldeano existe, preguntar si desea eliminarlo
                 string op;
@@ -77,7 +74,7 @@ Menu::Menu()
                 getline(cin, op);
                 if(op == "S"){
                     ///Si dice que sí se elimina al aldeano y se envia la confirmación
-                    arr.eliminarA(pos);
+                    arr->eliminarA(pos);
                     cout << endl << "-=ALDEANO ELIMINADO=-" << endl << endl;
                 }else if(op == "N"){
                     ///Si dice que no el aldeano vuelve "a su hogar" y se sigue con el menu
@@ -87,17 +84,6 @@ Menu::Menu()
                     ///Si se usa una letra diferente de 'S' o 'N'
                     cout << endl << "-=ERROR: OPCION NO VALIDA=-" << endl << endl;
                 }
-            }
-
-
-        }else if (op == "3") {
-            ///Se imprime el nombre de la civ. e igualmente los aldeanos
-            cout << "\t-=RESUMEN=- \n";
-            cout << "-Nombre civilizacion: " << arr.getNombreC() << endl;
-            cout << "-Poblacion total: " << arr.poblacionT() << endl;
-            cout << "-Aldeanos: " << endl;
-            for (int i = 0; i < arr.poblacionT(); ++i) {
-                cout << arr[i] << endl;
             }
 
         }else if (op == "0") {
