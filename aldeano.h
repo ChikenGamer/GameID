@@ -3,38 +3,37 @@
 
 #include <iostream>
 #include <cstdio>
-using namespace std;
 
 class Aldeano
 {
 private:
-    string nombreA;
+    std::string nombreA;
     int edadA;
-    string generoA;
+    std::string generoA;
     int saludA;
 
 public:
     Aldeano();
     Aldeano(const Aldeano&);
     ///Nombre
-    string getNombreA() const;
-    void setNombreA(const string &value);
+    std::string getNombreA() const;
+    void setNombreA(const std::string &value);
     ///Edad
     int getEdadA() const;
     void setEdadA(int value);
     ///Genero
-    string getGeneroA() const;
-    void setGeneroA(const string &value);
+    std::string getGeneroA() const;
+    void setGeneroA(const std::string &value);
     ///Salud;
     int getSaludA() const;
     void setSaludA(int value);
     ///ToString
-    string toString();
+    std::string toString();
 
     ///Operadoradores sobrecargados
     Aldeano& operator = (const Aldeano&a);
-    friend ostream &operator << (ostream &o, Aldeano &a);
-    friend istream& operator >> (istream &is, Aldeano&a);
+    friend std::ostream &operator << (std::ostream &o, Aldeano &a);
+    friend std::istream& operator >> (std::istream &is, Aldeano&a);
     bool operator == (const Aldeano&);
     bool operator != (const Aldeano&);
     bool operator <= (const Aldeano&);

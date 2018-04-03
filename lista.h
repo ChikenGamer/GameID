@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <stdexcept>
-using namespace std;
 
 template <class T>
 class Nodo
@@ -33,20 +32,20 @@ public:
     void insertarFi(const T &d);
     void insertarPo(const T &d, int pos);
 
-    T findData(const string &s);
+    T findData(const std::string &s);
 
     void eliminarI();
     void eliminarF();
-    void eliminarCiv(const string &s);
+    void eliminarCiv(const std::string &s);
 
-    bool posValida(const string &s);
+    bool posValida(const std::string &s);
     bool listaVacia();
 
     int tamano();
 
     T &operator [](int pos);
 
-    string toString();
+    std::string toString();
 };
 
 template <class T>
@@ -123,7 +122,7 @@ void Lista<T>::insertarPo(const T &d, int pos)
 }
 
 template<class T>
-T Lista<T>::findData(const string &s)
+T Lista<T>::findData(const std::string &s)
 {
     Nodo<T> *temp = raiz;
     if (posValida(s)) {
@@ -141,7 +140,7 @@ template<class T>
 void Lista<T>::eliminarI()
 {
     if (raiz==nullptr) {
-        cout << "Lista vacia";
+        std::cout << "Lista vacia";
     }else{
         Nodo<T> *temp = raiz;
         raiz = raiz->sig;
@@ -153,7 +152,7 @@ template<class T>
 void Lista<T>::eliminarF()
 {
     if(raiz == nullptr){
-        throw out_of_range("Lista vacia, eliminarf");
+        throw std::out_of_range("Lista vacia, eliminarf");
     }else if (raiz->sig==nullptr) {
         delete raiz;
         raiz = nullptr;
@@ -169,7 +168,7 @@ void Lista<T>::eliminarF()
 }
 
 template<class T>
-void Lista<T>::eliminarCiv(const string &s)
+void Lista<T>::eliminarCiv(const std::string &s)
 {
     Nodo<T>* temp = raiz;
     Nodo<T>* temp2 = raiz;
@@ -198,7 +197,7 @@ void Lista<T>::eliminarCiv(const string &s)
 }
 
 template<class T>
-bool Lista<T>::posValida(const string &s)
+bool Lista<T>::posValida(const std::string &s)
 {
     Nodo<T>* temp = raiz;
     while (temp != nullptr) {
@@ -235,7 +234,7 @@ template<class T>
 T &Lista<T>::operator [](int pos)
 {
     if (pos < 0 || pos >= tamano()) {
-        throw out_of_range("Posicion invalida, operador [], lista");//Nunca sera invalida
+        throw std::out_of_range("Posicion invalida, operador [], lista");//Nunca sera invalida
     } else {
         Nodo<T> *temp = raiz;
         int cont = 0;
@@ -251,10 +250,10 @@ T &Lista<T>::operator [](int pos)
 }
 
 template<class T>
-string Lista<T>::toString()
+std::string Lista<T>::toString()
 {
     Nodo<T> *temp = raiz;//Direccion temporal
-    string lista;//Inicia string lista
+    std::string lista;//Inicia string lista
 
     while (temp != nullptr) {//Hasta que temp apunte a nullo
         //lista *= cout << temp->dato->getNombreC;

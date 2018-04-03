@@ -3,7 +3,7 @@
 
 #include <stdexcept>
 #include <iostream>
-using namespace std;
+
 
 template <class T>
 class Civilizacion
@@ -15,13 +15,13 @@ private:
     const static int MAX = 5;
     ///Nombre por defecto de la civ.
 public:
-    string nombreC = "SIN NOMBRE";
+    std::string nombreC = "SIN NOMBRE";
 
     Civilizacion();
     ~Civilizacion();
-    string getNombreC();
+    std::string getNombreC();
 
-    void setNombreC(string s);
+    void setNombreC(std::string s);
     void agregarA(const T &dato);
     void eliminarA(int pos);
 
@@ -52,13 +52,13 @@ Civilizacion<T>::~Civilizacion()
 }
 
 template<class T>
-string Civilizacion<T>::getNombreC()
+std::string Civilizacion<T>::getNombreC()
 {
     return nombreC;
 }
 
 template<class T>
-void Civilizacion<T>::setNombreC(string s)
+void Civilizacion<T>::setNombreC(std::string s)
 {
     nombreC = s;
 }
@@ -69,7 +69,7 @@ void Civilizacion<T>::agregarA(const T &dato)
     if(indice < tam){
         ///Si el indice es menor al tam total se agrega el aldeano
         arreglo[indice++] = dato;
-        cout << endl << "-=ALDEANO AGREGADO=-" << endl << endl;
+        std::cout << std::endl << "-=ALDEANO AGREGADO=-" << std::endl << std::endl;
     }else{
         ///Si no se aumenta el tam y se crea un nuevo arreglo y se agrega el aldeano
         T *nuevo = new T[tam+5];
@@ -80,7 +80,7 @@ void Civilizacion<T>::agregarA(const T &dato)
         arreglo = nuevo;
         arreglo[indice++] = dato;
         tam = tam + 5;
-        cout << endl << "-=ALDEANO AGREGADO=-" << endl << endl;
+        std::cout << std::endl << "-=ALDEANO AGREGADO=-" << std::endl << std::endl;
     }
 }
 
@@ -104,7 +104,7 @@ void Civilizacion<T>::eliminarA(int pos)
 {
     if (pos >= indice or pos < 0) {
         ///Revisa si hay espacio para eliminar(Obsoleto por 'isEmpty()')
-        cout << "-=POSICION INVALIDA=-";
+        std::cout << "-=POSICION INVALIDA=-";
     }
     for (int i = pos; i < indice - 1; ++i) {
         ///Recorre el arreglo para sobreescribir la posicion
@@ -136,11 +136,11 @@ bool Civilizacion<T>::isEmpty()
 template<class T>
 void Civilizacion<T>::toString()
 {
-    cout << endl << "-Nombre civilizacion: " << nombreC<< endl;
-    cout << "-Poblacion total: " << poblacionT() << endl;
-    cout << "-Aldeanos: " << endl;
+    std::cout << std::endl << "-Nombre civilizacion: " << nombreC<< std::endl;
+    std::cout << "-Poblacion total: " << poblacionT() << std::endl;
+    std::cout << "-Aldeanos: " << std::endl;
     for (int i = 0; i < poblacionT(); ++i) {
-        cout << arreglo[i] << endl;
+        std::cout << arreglo[i] << std::endl;
     }
 }
 
@@ -149,7 +149,7 @@ T &Civilizacion<T>::operator[](int posicion)
 {
     ///Operador sobrecargado para poder imprimir el arreglo tipo T
     if (posicion < 0 or posicion >= indice){
-        cout << "-=POSICION INVALIDA=-";
+        std::cout << "-=POSICION INVALIDA=-";
     }
     return arreglo[posicion];
 }

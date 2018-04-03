@@ -4,9 +4,11 @@
 #include "aldeano.h"
 #include "lista.h"
 
+using namespace std;
+
 MenuCivilizacion::MenuCivilizacion()
 {
-    string op;
+    string myStr;
 
     Lista<Civilizacion<Aldeano>*> list;
 
@@ -20,15 +22,14 @@ MenuCivilizacion::MenuCivilizacion()
         cout << "3) Eliminar civilizacion" << endl;
         cout << "4) Mostrar civilizaciones" << endl;
         cout << "0) Cerrar" << endl;
-        cout << "Opcion: "; getline(cin, op);
+        cout << "Opcion: "; getline(cin, myStr);
         system("cls");
 
-        if (op=="1") {
+        if (myStr=="1") {
             /* Agregar civilizacion
              * Creara un objeto apuntador de la clase "civilizacion"
              */
 
-            string myStr;
             cout << "Ingresa el nombre de la nueva civilizacion: ";
             getline(cin, myStr);
             if (list.posValida(myStr)) {
@@ -42,14 +43,13 @@ MenuCivilizacion::MenuCivilizacion()
             cout << endl << "-=CIVILIZACION CREADA=-" << endl << endl;
 
 
-        }else if(op=="2"){
+        }else if(myStr=="2"){
             /*
              * Buscar civilizacion
              * pedira el nombre de una civilizacíon, si la civilizacion no
              * existe, mostrar un mensaje. Si existe la civilizacion,
              * mostrar el menu de la actividad 01
              */
-            string myStr;
             if(!list.listaVacia()){
                 cout << "Nombre de la civilizacion a buscar: ";
                 getline(cin, myStr);
@@ -64,12 +64,12 @@ MenuCivilizacion::MenuCivilizacion()
                 cout << endl << "-=ERROR: NO HAY CIVILIZACIONES=-"<< endl << endl;
             }
 
-        }else if (op=="3") {
+        }else if (myStr=="3") {
             /*Eliminar civilizacion
              * Pedira el nombre de la civilizacion y eliminara el nodo de la lista
              * simplemente ligada que corresponda a la civilizacion con ese nombre
              */
-            string myStr,op;
+            string op;
             if (!list.listaVacia()) {
                 cout << "Nombre de la civilizacion a eliminar: ";
                 getline(cin, myStr);
@@ -90,7 +90,7 @@ MenuCivilizacion::MenuCivilizacion()
                 cout << endl << "-=ERROR: NO HAY CIVILIZACIONES=-"<< endl << endl;
             }
 
-        }else if (op=="4") {
+        }else if (myStr=="4") {
             /*Mostrar civilizaciones
              * Muestra en pantalla el nombre de la civilizacion y su población
              */
@@ -103,9 +103,9 @@ MenuCivilizacion::MenuCivilizacion()
                 cout << endl <<"-=ERROR: NO HAY CIVILIZACIONES=-"<< endl << endl;
             }
 
-        }else if(op == "0"){
+        }else if(myStr == "0"){
             cout << endl <<"\t-=SEE YOU LATER=-"<< endl << endl;
             break;
-        }else if (op == "5"){ }
+        }else if (myStr == "5"){ }///To debug
     }
 }

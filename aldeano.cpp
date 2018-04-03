@@ -1,5 +1,7 @@
 #include "aldeano.h"
 
+using namespace std;
+
 Aldeano::Aldeano(){}
 
 Aldeano::Aldeano(const Aldeano& a) : nombreA(a.nombreA), edadA(a.edadA), generoA(a.generoA), saludA(a.saludA){ }
