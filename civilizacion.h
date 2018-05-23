@@ -205,6 +205,7 @@ template<class T>
 void Civilizacion<T>::toString()
 {
     std::cout << std::endl << "\t\t\t-Nombre civilizacion: " << nombreC<< std::endl;
+    std::cout << "\t\t\t-Coordenadas X,Y: " << getColumnaMapa() << " , " << getFilaMapa() << std::endl;
     std::cout << "\t\t\t-Poblacion total: " << poblacionT()+guerreros.getSize() << std::endl;
     std::cout << "\t\t\t-Aldeanos: " << std::endl;
     for (int i = 0; i < poblacionT(); ++i) {
