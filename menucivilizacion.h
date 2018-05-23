@@ -6,6 +6,8 @@
 #include "aldeano.h"
 #include <fstream>
 #include <sstream>
+#include <conio.h>
+#include "mapa.h"
 
 class MenuCivilizacion
 {

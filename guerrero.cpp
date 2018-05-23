@@ -1,6 +1,8 @@
 #include "guerrero.h"
 using namespace std;
 
+Guerrero::Guerrero(){}
+
 int Guerrero::getIdGuerrero() const
 {
     return idGuerrero;
@@ -65,7 +67,7 @@ string Guerrero::toString()
     char miEscudo[sizeof(escudoGuerrero)];
     sprintf(miEscudo, "%f", escudoGuerrero);
 
-    string result = "+> ";
+    string result = "\t\t\t+> ";
     result += miId;
     result += " | ";
     result += miSalud;
@@ -76,7 +78,6 @@ string Guerrero::toString()
     result += " E | ";
     result += tipoGuerrero;
 
-    //return "+> " + miId + " | " + miSalud + " | " + miFuerza + " | " + miEscudo + " | " + tipoGuerrero;
     return result;
 
 }
@@ -91,29 +92,6 @@ Guerrero &Guerrero::operator = (const Guerrero &g){
     return *this;
 }
 
-//bool Guerrero::operator == (const Guerrero &g)
-//{
-//    return idGuerrero == g.idGuerrero;
-//}
-
-//istream &Guerrero::operator >>(istream &is, Guerrero &g)
-//{
-//    string myStr;
-//    getline(is, myStr) >> g.idGuerrero;
-//    g.idGuerrero = atof(myStr.c_str());
-
-//    getline(is, myStr) >> g.saludGuerrero;
-//    g.saludGuerrero = atof(myStr.c_str());
-
-//    getline(is, myStr) >> g.fuerzaGuerrero;
-//    g.fuerzaGuerrero = atof(myStr.c_str());
-
-//    getline(is, myStr) >> g.escudoGuerrero;
-//    g.escudoGuerrero = atof(myStr.c_str());
-
-//    is >> g.tipoGuerrero;
-//    return is;
-//}
 
 ostream &operator <<(ostream &o, Guerrero &g){
     //Se convierte la salud y la edad a una string para poder imprimir
@@ -129,7 +107,7 @@ ostream &operator <<(ostream &o, Guerrero &g){
     char miEscudo[sizeof(g.escudoGuerrero)];
     sprintf(miEscudo, "%.2f", g.escudoGuerrero);
 
-    o << "+> "
+    o << "\t\t\t+> "
       << miId
       << " | " << miSalud
       << " HP | " << miFuerza
@@ -139,6 +117,4 @@ ostream &operator <<(ostream &o, Guerrero &g){
     return o;
 }
 
-Guerrero::Guerrero(){}
 
-//Guerrero::Guerrero(const Guerrero &g) : id(g.id), salud(g.salud), fuerza(g.fuerza), escudo(g.escudo), tipoGuerrero(g.tipoGuerrero){}

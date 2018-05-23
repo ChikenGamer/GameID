@@ -57,20 +57,6 @@ int ListaDoble<T>::getSize()
     return size;
 }
 
-//< No permite añadir el dato al string
-//template<class T>
-//std::string ListaDoble<T>::toString()
-//{
-//    NodoD<T> *temp = primero;//Direccion temporal
-//    std::string lista;//Inicia string lista
-
-//    while (temp != nullptr) {//Hasta que temp apunte a nullo
-//        lista += temp->dato;//Se le añade lo que hay
-//        temp = temp->sig; //Temp pasa a la direccion siguiente
-//    }
-//    return lista;
-//}
-
 template<class T>
 bool ListaDoble<T>::vacia()
 {
@@ -212,12 +198,11 @@ T &ListaDoble<T>::operator[](int posicion)
     NodoD<T> *temp = primero;
     int contador = 0;
 
-    while (temp != nullptr) {
-        if (contador++ == posicion) {
-            return temp->dato;
-        }
+    while (temp != nullptr and contador != posicion) {
         temp = temp->sig;
+        contador ++;
     }
+    return temp->dato;
 }
 
 #endif // LISTADOBLE_H

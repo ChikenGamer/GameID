@@ -14,7 +14,6 @@ private:
     std::string tipoGuerrero;
 public:
     Guerrero();
-    //Guerrero(const Guerrero&);
 
     int getIdGuerrero() const;
     void setIdGuerrero(int value);
@@ -37,7 +36,6 @@ public:
     Guerrero& operator = (const Guerrero&g);
     friend std::ostream &operator << (std::ostream &o, Guerrero &g);
     friend std::istream& operator >> (std::istream &is, Guerrero &g);
-    //bool operator == (const Guerrero &g);
 };
 
 #endif // GUERRERO_H

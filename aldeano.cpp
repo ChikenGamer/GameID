@@ -45,7 +45,7 @@ string Aldeano::toString(){
     char miSalud[7];
     sprintf(miEdad, "%d", edadA);
     sprintf(miSalud, "%d", saludA);
-    return "+ " + nombreA + " | " + generoA + " | " + miEdad + " | " + miSalud;
+    return "\t\t\t+ " + nombreA + " | " + generoA + " | " + miEdad + " | " + miSalud;
 }
 
 Aldeano &Aldeano::operator = (const Aldeano &a){
@@ -65,7 +65,7 @@ ostream &operator <<(ostream &o, Aldeano &a){
     char miEdad[7];
     sprintf(miEdad, "%d", a.edadA);
 
-    o << "+ "
+    o << "\t\t\t+ "
       << a.nombreA
       << " | " << miEdad
       << " | " << a.generoA

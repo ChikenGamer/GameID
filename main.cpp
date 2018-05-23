@@ -1,13 +1,15 @@
 #include <iostream>
-#include "menucivilizacion.h"
+#include <conio.h>
+#include <iomanip>
 #include <windows.h>
+#include "menucivilizacion.h"
 using namespace std;
 
 int main()
 {
     //Para tamaño ventana
-    //system ( " MODE 100 , 30" ) ;
-    //system("MODE CON cols=70 lines=20");
+    // 81 x 40 - Cosolas 18
+
     SetConsoleTitle(TEXT("GAME_ID"));
     cout << R"(
           .--------.--------------------------------------------------.
@@ -28,14 +30,17 @@ int main()
           |:::::_||            '------------------'           ||::::::|
           |:,-'' ||_____________________o_____________________||::::::|
           |     ,`-------,----------.-------.------------------'::::::|
-          |  ,         ,':::::::::::|       |:::::::::::::::::::::::::|
+          |  ,        [1] INICIAR|       |::::: [0] SALIR ::::::::::::|
           '-'---------'-------------'-------'-------------------------'
             )";
 
-    //_getch();
-    system("PAUSE");
-    system("cls");
-    MenuCivilizacion c;
-
-    return 0;
+    char key = ' ';
+    key = _getch();
+    if (key == '1') {
+        system("cls");
+        MenuCivilizacion c;
+    }else if (key == '0') {
+        system("cls");
+        return 0;
+    }
 }

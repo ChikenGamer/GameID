@@ -239,13 +239,11 @@ T &Lista<T>::operator [](int pos)
         Nodo<T> *temp = raiz;
         int cont = 0;
 
-        while (temp != nullptr) {
-            if (cont == pos) {
-                return temp->dato;
-            }
+        while (temp != nullptr and cont != pos) {
             temp = temp->sig;
             cont ++;
         }
+        return temp->dato;
     }
 }
 
