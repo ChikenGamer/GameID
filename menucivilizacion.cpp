@@ -45,8 +45,8 @@ void respaldar(Lista<Civilizacion<Aldeano>*> &civilizaciones){
             }
             aldeanos.close();
 
-            ofstream guerreros("C:\\Users\\Usuario\\Desktop\\Game_ID5\\Data\\" + civilizaciones[i]->getNombreC() + "G.txt", ios::out); //< Escuela
-            //ofstream guerreros("C:\\Users\\Oscar Diaz\\Desktop\\Gameid5\\Game_ID5\\Data\\" + civilizaciones[i]->getNombreC() + "G.txt", ios::out); //< Casa
+            ofstream guerreros("C:\\Users\\Usuario\\Desktop\\Game_ID5\\Data\\" + civilizaciones[i]->getNombreC() + "_G.txt", ios::out); //< Escuela
+            //ofstream guerreros("C:\\Users\\Oscar Diaz\\Desktop\\Gameid5\\Game_ID5\\Data\\" + civilizaciones[i]->getNombreC() + "_G.txt", ios::out); //< Casa
 
             if(guerreros.is_open()){
                 for (int j = 0; j < civilizaciones[i]->guerrerosSize(); ++j) {
@@ -64,8 +64,8 @@ void respaldar(Lista<Civilizacion<Aldeano>*> &civilizaciones){
             }
             guerreros.close();
 
-            ofstream recursos("C:\\Users\\Usuario\\Desktop\\Game_ID5\\Data\\" + civilizaciones[i]->getNombreC() + "R.txt", ios::out); //< Escuela
-            //ofstream recursos("C:\\Users\\Oscar Diaz\\Desktop\\Gameid5\\Game_ID5\\Data\\" + civilizaciones[i]->getNombreC() + "R.txt", ios::out); //< Casa
+            ofstream recursos("C:\\Users\\Usuario\\Desktop\\Game_ID5\\Data\\" + civilizaciones[i]->getNombreC() + "_R.txt", ios::out); //< Escuela
+            //ofstream recursos("C:\\Users\\Oscar Diaz\\Desktop\\Gameid5\\Game_ID5\\Data\\" + civilizaciones[i]->getNombreC() + "_R.txt", ios::out); //< Casa
 
             if(recursos.is_open()){
                 for (int j = 0; j < civilizaciones[i]->colaSize(); ++j) {
@@ -183,8 +183,8 @@ void recuperar(Lista<Civilizacion<Aldeano>*> &civilizaciones){
             }
             aldeanos.close();
 
-            ifstream guerreros("C:\\Users\\Usuario\\Desktop\\Game_ID5\\Data\\" + civilizacionN + "G.txt", ios::in);//< Escuela
-            //ifstream guerreros("C:\\Users\\Oscar Diaz\\Desktop\\Gameid5\\Game_ID5\\Data\\" + civilizacionN + "G.txt", ios::in);//< Casa
+            ifstream guerreros("C:\\Users\\Usuario\\Desktop\\Game_ID5\\Data\\" + civilizacionN + "_G.txt", ios::in);//< Escuela
+            //ifstream guerreros("C:\\Users\\Oscar Diaz\\Desktop\\Gameid5\\Game_ID5\\Data\\" + civilizacionN + "_G.txt", ios::in);//< Casa
             double fuerza, escudo;
             int id, vida;
             string guerreroS;
@@ -228,8 +228,8 @@ void recuperar(Lista<Civilizacion<Aldeano>*> &civilizaciones){
             }
             guerreros.close();
 
-            ifstream recursos("C:\\Users\\Usuario\\Desktop\\Game_ID5\\Data\\" + civilizacionN + "R.txt", ios::in);//< Escuela
-            //ifstream recursos("C:\\Users\\Oscar Diaz\\Desktop\\Gameid5\\Game_ID5\\Data\\" + civilizacionN + "R.txt", ios::in);//< Casa
+            ifstream recursos("C:\\Users\\Usuario\\Desktop\\Game_ID5\\Data\\" + civilizacionN + "_R.txt", ios::in);//< Escuela
+            //ifstream recursos("C:\\Users\\Oscar Diaz\\Desktop\\Gameid5\\Game_ID5\\Data\\" + civilizacionN + "_R.txt", ios::in);//< Casa
 
             int iD, cantidad;
             string recursoS;
